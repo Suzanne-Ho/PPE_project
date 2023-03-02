@@ -8,11 +8,12 @@ import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-    { name: 'Suzanne&Emma\'s Blog', href: '/', current: true },
+    { name: 'Edubet', href: '/', current: true },
     { name: 'Tutorat', href: '/tutorat', current: false },
     { name: 'Forum', href: '/posts', current: false },
-    { name: 'Prize', href: '/prize', current: false },
-    { name: 'About us', href: '/about', current: false },
+    { name: 'Récompenses', href: '/prize', current: false },
+    { name: 'Pari', href: '/contact', current: false },
+    { name: 'Classement', href: '/contact', current: false },
     { name: 'Contact', href: '/contact', current: false },
 ]
 

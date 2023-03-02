@@ -13,11 +13,11 @@ export default function Footer() {
         `theme-${mode}`,
       ].filter(Boolean).join(' ')}>
       <a
-        href="/about"
+        href="/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Powered by Suzanne and Emma
+        Powered by Edubet
       </a>
     </footer>
   )

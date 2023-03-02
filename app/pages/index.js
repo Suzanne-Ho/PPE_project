@@ -13,91 +13,51 @@ export default function Home({
     return (
         <Layout>
             <Head>
-                <title>WebTech</title>
+                <title>Edubet</title>
                 <meta name="description" content="Web technologies blogging application" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <h1 className="flex justify-center mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-neutralTitle pb-8">
-                Welcome to our
+                Bienvenue sur
                 <mark className="ml-2 flex px-2 text-onNeutralTitle rounded bg-onPrimaryBg">
-                    blog
+                    EDUBET
                 </mark>
                 !
             </h1>
             <p className="flex justify-center text-lg font-normal lg:text-xl text-neutralText">
-                Discover stories and thinking here on our blog. You can also write your own article!
+                Apprenez à votre rythme avec des cours en ligne de qualité supérieure. Rejoignez notre communauté d'étudiants et découvrez le pouvoir de l'apprentissage en ligne tout en ayant fun dès aujourd'hui!
             </p>
 
             {/* "Card" */}
-            <div className="flex justify-center p-5">
+            <div className="grid grid-cols-1 gap-y-1 gap-x-6 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-3 p-5">
                 <Link href="/posts"
                     className="m-3 block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                        Discovert the forum
+                        Découvrez le forum!
                     </h5>
                     <p className="font-normal text-gray-700">
-                        Here you can find many entertaining shared articles.
+                        Trouvez des réponses à vos questions.
                     </p>
                 </Link>
-                <Link href="/about"
+                <Link href="/prize"
                     className="m-3 block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                        About us
+                        Récompenses
                     </h5>
                     <p className="font-normal text-gray-700">
-                        If you want to know more about us.
+                        Découvre les prix que tu peux échanger.
                     </p>
                 </Link>
                 <Link href="/contact"
                     className="m-3 block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 ">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                        Contact us
+                        Contact nous
                     </h5>
                     <p className="font-normal text-gray-700">
-                        For any problem or other thing, don t hesitate to contact us.
+                        Pour tout problème ou autre, n'hésitez pas à nous contacter.
                     </p>
                 </Link>
             </div>
-
-            {/* Last Articles List
-            <div className="flex flex-wrap my-5">
-                <h5 className="mb-0 text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl leading-none text-neutralTitle pb-0">
-                    Latest Articles
-                </h5>
-                {posts.map(article => (
-                    <div key={post.slug}
-                        className="w-full overflow-hidden shadow ring-1 ring-onNeutralBg ring-opacity-5 md:rounded-lg my-5">
-                        <div className="bg-colorElementBg">
-                            <dl className="px-3 py-4 [&_dt]:italic [&_dt]:text-neutralText [&_dt]:pr-3">
-                                <div className='flex justify-between'>
-                                    <div>
-                                        <dt>Title</dt>
-                                        <dd className="mb-2 text-2xl font-bold tracking-tight text-neutralTitle hover:text-onPrimaryBg">
-                                            <Link href={`/posts/${article.id}`}>{post.title}</Link></dd>
-                                    </div>
-                                    <div>
-                                        <dt>Category</dt>
-                                        <dd className="mb-2 text-sm font-medium text-neutralText">{post.subject}</dd>
-                                    </div>
-                                </div>
-                            </dl>
-                            <div className="px-3 py-4">
-                                <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
-                                    <div className="sm:col-span-2">
-                                        <dt className="text-sm font-medium text-neutralText">By</dt>
-                                        <dd className="mt-1 text-sm text-neutralText">{post.author}</dd>
-                                    </div>
-                                </dl>
-
-                            </div>
-
-                        </div>
-                        <div className="px-3 py-10 bg-colorElementBg2">
-                            <div className="text-neutralText truncate" dangerouslySetInnerHTML={{ __html: md().render(post.message) }} />
-                        </div>
-                    </div>
-                ))}
-            </div>*/}
 
         </Layout>
     )

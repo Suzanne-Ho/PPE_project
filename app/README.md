@@ -1,5 +1,5 @@
 
-# Web technology blog
+# Web Application
 
 ## Getting Started
 

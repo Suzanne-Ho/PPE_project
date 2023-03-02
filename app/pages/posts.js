@@ -10,12 +10,12 @@ export default function Posts({
   return (
     <Layout>
       <Head>
-        <title>Forum - posts</title>
+        <title>Edubet - forum</title>
         <meta name="description" content="WebTech articles page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className='flex justify-center mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl pb-8 text-neutralTitle'>
-        Welcome to the forum !
+        Forum
       </h1>
       <div className='flex justify-center'>
         <button className="flex rounded px-3 py-2 text-neutralText bg-primaryBg hover:bg-onPrimaryBg hover:text-hoverText">
@@ -24,7 +24,7 @@ export default function Posts({
             <path strokeLinecap="round" strokeLinejoin="round"
                   d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
           </svg>
-          <Link href="/newPost" className="ml-2">Write a a new post</Link>
+          <Link href="/newPost" className="ml-2">Ecrire une question</Link>
         </button>
       </div>
       <div className="flex flex-wrap my-5">
@@ -45,7 +45,7 @@ export default function Posts({
                   <div>
                     <dt>Subject</dt>
                     <dd className="mb-2 tracking-tight text-neutralText hover:text-onPrimaryBg">
-                      {post.categorie}</dd>
+                      {post.subject}</dd>
                   </div>
                 </div>
               </dl>

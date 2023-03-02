@@ -157,7 +157,7 @@ export default function Post({
                         {post.created_at}
                     </p>
                     <p className="mb-3 font-light text-neutralText">
-                        Category:
+                        Subject:
                         {post.subject}
                     </p>
                 </div>

@@ -25,7 +25,7 @@ export default function Home({
                 !
             </h1>
             <p className="flex justify-center text-lg font-normal lg:text-xl text-neutralText">
-                Apprenez à votre rythme avec des cours en ligne de qualité supérieure. Rejoignez notre communauté d'étudiants et découvrez le pouvoir de l'apprentissage en ligne tout en ayant fun dès aujourd'hui!
+                Apprenez à votre rythme avec des cours en ligne de qualité supérieure. Rejoignez notre communauté d étudiants et découvrez le pouvoir de l apprentissage en ligne tout en ayant fun dès aujourd hui!
             </p>
 
             {/* "Card" */}
@@ -54,7 +54,7 @@ export default function Home({
                         Contact nous
                     </h5>
                     <p className="font-normal text-gray-700">
-                        Pour tout problème ou autre, n'hésitez pas à nous contacter.
+                        Pour tout problème ou autre, n hésitez pas à nous contacter.
                     </p>
                 </Link>
             </div>

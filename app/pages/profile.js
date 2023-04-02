@@ -47,7 +47,7 @@ export default function Profile({
       const { error } = await supabase
         .from('profiles')
         .insert([
-          { user_email: user.email, lastname: data.get('lastname'), firstname: data.get('firstname') },
+          { user_email: user.email},
         ])
     }
     if (error) {
@@ -140,7 +140,7 @@ export async function getStaticProps() {
   let profiles = {}
   const { data, error, status } = await supabase
     .from('profiles')
-    .select('id, firstname, lastname, user_email')
+    .select('id, user_email')
   if (!error) profiles = data // handle errors
   return {
     props: {

@@ -109,7 +109,7 @@ export default function Admin({prizes}) {
                     </div>
                 </Link>
                 <Link className="transform  hover:scale-105 transition duration-300 shadow-xl rounded-lg col-span-12 sm:col-span-6 xl:col-span-3 intro-y bg-white"
-                   href="#">
+                   href="admin/cours">
                     <div className="p-5">
                         <div className="flex justify-between">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

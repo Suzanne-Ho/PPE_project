@@ -15,7 +15,7 @@ export default function Tutorat({lessons}) {
         Tutorat
       </h1>
       <p className="flex justify-center text-lg font-normal lg:text-xl text-neutralText">
-        Choisis le cours que tu souhaite suivre parmis ceux qu on te propose.
+          Choisis le cours que tu souhaite suivre parmi ceux qu&apos;on te propose.
       </p>
 
 

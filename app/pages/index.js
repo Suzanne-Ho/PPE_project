@@ -14,7 +14,7 @@ export default function Home({
         <Layout>
             <Head>
                 <title>Edubet</title>
-                <meta name="description" content="Web technologies blogging application" />
+                <meta name="description" content="Edubet web application" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <h1 className="flex justify-center mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-neutralTitle pb-8">
@@ -25,7 +25,7 @@ export default function Home({
                 !
             </h1>
             <p className="flex justify-center text-lg font-normal lg:text-xl text-neutralText">
-                Apprenez à votre rythme avec des cours en ligne de qualité supérieure. Rejoignez notre communauté d étudiants et découvrez le pouvoir de l apprentissage en ligne tout en ayant fun dès aujourd hui!
+                Apprenez à votre rythme avec des cours en ligne de qualité supérieure. Rejoignez notre communauté d&apos;étudiants et découvrez le pouvoir de l&apos;apprentissage en ligne tout en ayant fun dès aujourd&apos;hui!
             </p>
 
             {/* "Card" */}
@@ -51,10 +51,10 @@ export default function Home({
                 <Link href="/contact"
                     className="m-3 block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 ">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                        Contact nous
+                        Contactez-nous
                     </h5>
                     <p className="font-normal text-gray-700">
-                        Pour tout problème ou autre, n hésitez pas à nous contacter.
+                        Pour tout problème ou autre, n&apos;hésitez pas à nous contacter.
                     </p>
                 </Link>
             </div>

@@ -13,7 +13,7 @@ const navigation = [
     { name: 'Forum', href: '/posts', current: false },
     { name: 'Récompenses', href: '/prize', current: false },
     { name: 'Pari', href: '/bet', current: false },
-    { name: 'Classement', href: '/contact', current: false },
+    { name: 'Classement', href: '/ranking', current: false },
     { name: 'Contact', href: '/contact', current: false },
 ]
 

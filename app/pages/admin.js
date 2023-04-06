@@ -5,7 +5,7 @@ import {supabase} from "./api/supabase";
 import Link from "next/link";
 import React from "react";
 import { useState } from 'react';
-import {attachReactRefresh} from "next/dist/build/webpack-config";
+import { useRouter } from 'next/router';
 
 
 export async function getServerSideProps(ctx) {
@@ -26,6 +26,7 @@ export async function getServerSideProps(ctx) {
 export default function Admin({prizes}) {
     const [deletePrizeId, setDeletePrizeId] = useState(null);
     const [updatePrize, setUpdatePrize] = useState(null);
+    const router = useRouter();
 
     const handleDeletePrize = async (id) => {
         try {
@@ -35,7 +36,7 @@ export default function Admin({prizes}) {
         } catch (error) {
             console.error(error);
         }
-        location.reload();
+        router.reload();
     };
 
     const handleUpdatePrize = async (prize) => {
@@ -49,7 +50,7 @@ export default function Admin({prizes}) {
         } catch (error) {
             console.error(error);
         }
-        location.reload();
+        router.reload();
     };
 
     return (

@@ -23,7 +23,7 @@ export default function LoggedIn() {
             {user ? (
                 <>
                     {user.email}
-                    <Avatar email={user.email} className="w-6"/>
+                    {/*<Avatar email={user.email} className="w-6"/>*/}
                 </>
             ) : (
                 <>Login</>

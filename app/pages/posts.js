@@ -10,7 +10,7 @@ export default function Posts({
     return (<Layout>
         <Head>
             <title>Edubet - Forum</title>
-            <meta name="description" content="WebTech articles page"/>
+            <meta name="description" content="Edubet forum page"/>
             <link rel="icon" href="/favicon.ico"/>
         </Head>
         <h1 className='flex justify-center mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl pb-8 text-neutralTitle'>
@@ -133,16 +133,21 @@ export default function Posts({
     </Layout>)
 }
 
-export async function getStaticProps(ctx) {
-
+export async function getServerSideProps(ctx) {
     let posts = []
-    let {data, error, status} = await supabase
+    let { data, error, status } = await supabase
         .from('posts')
-        .select(`*`)
-    if (!error) posts = data // handle errors
+        .select('*')
+
+    if (!error) {
+        posts = data
+    } else {
+        console.error(error)
+    }
+
     return {
         props: {
-            posts: posts
+            posts
         }
-    };
+    }
 }

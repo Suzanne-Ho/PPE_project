@@ -64,17 +64,22 @@ export default function Tutorat({lessons}) {
   )
 }
 
-export async function getStaticProps(ctx) {
-
-    let lessons = []
+export async function getServerSideProps(ctx) {
+    let lessons = [];
     let { data, error, status } = await supabase
         .from('lessons')
-        .select(`*`)
-    if (!error) lessons = data // handle errors
+        .select('*');
+
+    if (!error) {
+        lessons = data;
+    } else {
+        console.error(error);
+    }
+
     return {
         props: {
-            lessons: lessons
-        }
+            lessons,
+        },
     };
 }
 

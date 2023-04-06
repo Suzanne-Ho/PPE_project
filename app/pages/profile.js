@@ -78,31 +78,16 @@ export default function Profile({
         <>
           {/* display the user information on profile page */}
           <h1 className="flex justify-center mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-neutralTitle pb-8">
-            Welcome  {user.user_metadata.preferred_username ? user.user_metadata.preferred_username : user.email} !
+            Bienvenue {user.user_metadata.preferred_username ? user.user_metadata.preferred_username : user.email} !
           </h1>
           <h5 className="mb-5 text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl leading-none text-neutralTitle pb-0">
-            Here is your profile:
+            Voici ton profil:
           </h5>
-          <p className="flex text-2xl tracking-tight text-neutralText">
-            Image profile:
-            <Avatar email={user.email} />
-          </p>
           <p className="flex mt-3 text-2xl tracking-tight text-neutralText">
             Email: {user.email}
           </p>
-          <ul className="flex flex-col">
-            {/*{profiles.map((profile) => (
-              <li key={profile.id}>
-                <p className="text-2xl tracking-tight text-neutralText">
-                  {user.email == profile.user_email ? 'firstname: ' + profile.firstname : ''}
-                </p>
-                <p className="text-2xl tracking-tight text-neutralText">
-                  {user.email == profile.user_email ? 'lastname: ' + profile.lastname : ''}
-                </p>
-              </li>
-            ))}*/}
-          </ul>
-          {/* form to update the firstname and lastname of the user */}
+
+          {/* form to update the firstname and lastname of the user
           <form onSubmit={onSubmit}>
             <div className="grid gap-4 sm:grid-cols-1 sm:gap-0">
               <label className="text-2xl tracking-tight text-neutralText">
@@ -118,6 +103,7 @@ export default function Profile({
               Save
             </button>
           </form>
+          */}
           <button
             className="mt-3 rounded px-3 py-2 text-neutralText bg-primaryBg hover:bg-onPrimaryBg hover:text-hoverText"
             onClick={onClickLogout}
@@ -140,7 +126,7 @@ export async function getStaticProps() {
   let profiles = {}
   const { data, error, status } = await supabase
     .from('profiles')
-    .select('id, user_email')
+    .select('*')
   if (!error) profiles = data // handle errors
   return {
     props: {

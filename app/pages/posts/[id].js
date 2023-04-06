@@ -135,6 +135,25 @@ export default function Post({
         }
     }
 
+    const onSubmitReport = async (e) => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const reason = form.get('reason');
+        const body = form.get('body');
+
+        const res = await fetch(`/api/posts/${post.id}/report`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ reason, body }),
+        });
+
+        if (res.status === 201) {
+            setReportVisible(false);
+            alert('Post has been reported');
+        } else {
+            alert('Failed to report post');
+        }
+    }
 
     return (
         <Layout>
@@ -228,6 +247,23 @@ export default function Post({
                                                 <p className="text-sm text-neutralText">
                                                     {comment.created_at}
                                                 </p>
+                                                {user && user.email != comment.author_email ?
+                                                    <div className="ml-auto">
+                                                        <button value={comment.id}
+                                                                className="right-0 rounded px-1 py-1 ml-5 text-neutralText bg-primaryBg hover:bg-onPrimaryBg hover:text-hoverText"
+                                                                onClick={onSubmitReport}>
+                                                            <div className="flex">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                     viewBox="0 0 24 24" stroke-width="1.5"
+                                                                     stroke="currentColor" className="w-6 h-6">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                          d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5"/>
+                                                                </svg>
+                                                                Signaler
+                                                            </div>
+                                                        </button>
+                                                    </div> : <></>
+                                                }
                                             </div>
                                         </div>
                                         <p className="text-neutralText">

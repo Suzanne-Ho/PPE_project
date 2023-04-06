@@ -94,7 +94,8 @@ export default function BetPage() {
                             </p>
                         </div>
                         <div className="px-6 pt-4 pb-2">
-                            {!bet.player2_email || !(bet.player1_email && bet.player2_email) ? (
+                            {/*Verify that there is an available spot for the bet and we didn't already join it*/}
+                            {(!bet.player2_email || !(bet.player1_email && bet.player2_email) )&& bet.player1_email != user.email ? (
                                 <button
                                     className="bg-primaryBg hover:bg-onPrimaryBg text-neutralText hover:text-hoverText py-2 px-4 rounded"
                                     onClick={() => handleJoinBet(bet)}

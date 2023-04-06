@@ -27,6 +27,7 @@ export default function Admin({prizes}) {
     const [deletePrizeId, setDeletePrizeId] = useState(null);
     const [updatePrize, setUpdatePrize] = useState(null);
     const router = useRouter();
+    const [formData, setFormData] = useState({});
 
     const handleDeletePrize = async (id) => {
         try {
@@ -39,18 +40,28 @@ export default function Admin({prizes}) {
         router.reload();
     };
 
-    const handleUpdatePrize = async (prize) => {
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevState) => ({ ...prevState, [name]: value }));
+    };
+
+    const handleUpdatePrize = async (prizeId) => {
         try {
+            const prizeToUpdate = prizes.find(prize => prize.id === prizeId);
             const { data, error } = await supabase
                 .from('prizes')
-                .update(prize)
-                .eq('id', prize.id);
+                .update({
+                    name: formData[`name${prizeId}`] || prizeToUpdate.name,
+                quantity: formData[`quantity${prizeId}`] || prizeToUpdate.quantity,
+                price: formData[`price${prizeId}`] || prizeToUpdate.price,
+        })
+        .eq('id', prizeId);
             if (error) throw error;
-            setUpdatePrize(null);
+            setFormData({});
+            router.reload();
         } catch (error) {
             console.error(error);
         }
-        router.reload();
     };
 
     return (
@@ -93,7 +104,7 @@ export default function Admin({prizes}) {
                     </div>
                 </Link>
                 <Link className="transform  hover:scale-105 transition duration-300 shadow-xl rounded-lg col-span-12 sm:col-span-6 xl:col-span-3 intro-y bg-white"
-                   href="#">
+                   href="/admin/reports">
                     <div className="p-5">
                         <div className="flex justify-between">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -208,15 +219,15 @@ export default function Admin({prizes}) {
                                                     <tr key={prize.id}>
                                                         <td
                                                             className="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                            <p>{prize.name}</p>
+                                                            <input defaultValue={prize.name} placeholder={prize.name} type="text" name={`name${prize.id}`} onChange={handleInputChange}/>
                                                         </td>
                                                         <td
                                                             className="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                            <p>{prize.quantity}</p>
+                                                            <input defaultValue={prize.quantity} placeholder={prize.quantity} type="text" name={`quantity${prize.id}`} onChange={handleInputChange}/>
                                                         </td>
                                                         <td
                                                             className="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                            <p>{prize.price}</p>
+                                                            <input defaultValue={prize.price} placeholder={prize.price} type="text" name={`price${prize.id}`} onChange={handleInputChange}/>
                                                         </td>
                                                         <td
                                                             className="px-6 py-4 whitespace-no-wrap text-sm leading-5">

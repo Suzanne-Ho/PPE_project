@@ -4,9 +4,7 @@ import Layout from '../components/Layout.js'
 import {supabase} from './api/supabase'
 import md from "markdown-it";
 
-export default function Posts({
-                                  posts
-                              }) {
+export default function Posts({posts}) {
     return (<Layout>
         <Head>
             <title>Edubet - Forum</title>

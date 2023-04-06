@@ -4,7 +4,7 @@ import Image from 'next/image'
 import {supabase} from "./api/supabase";
 
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
 
     let prizes = []
     let {data, error, status} = await supabase
@@ -46,8 +46,14 @@ export default function Prize({prizes}) {
                         </div>
                         <div className="px-6 pt-4 pb-2">
                             <span
-                                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Quantité restante: {prize.quantity}</span>
-
+                                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                                Quantité restante: {prize.quantity}
+                            </span>
+                        </div>
+                        <div className="flex justify-center mb-3">
+                            <button className="bg-primaryBg hover:bg-onPrimaryBg text-neutralText hover:text-hoverText py-2 px-4 rounded">
+                                Échanger
+                            </button>
                         </div>
                     </div>
 

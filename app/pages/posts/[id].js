@@ -159,7 +159,7 @@ export default function Post({
         <Layout>
             <Head>
                 <title>Edubet - {post.title}</title>
-                <meta name="description" content="WebTech posts page"/>
+                <meta name="description" content="Edubet post page"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             {/* Post information */}

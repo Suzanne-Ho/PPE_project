@@ -48,7 +48,7 @@ export function UserContextProvider({ children }) {
                 }
             }}
         >
-            {loading ? <div>Loading...</div> : children}
+            {children}
         </UserContext.Provider>
     )
 }

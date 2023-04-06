@@ -63,19 +63,3 @@ export default function Home({
     )
 }
 
-export async function getServerSideProps() {
-    let { data: artciles } = await supabase
-        .from('articles')
-        .select('*')
-    let { data: articles } = await supabase
-        .from('articles')
-        .select(`id,slug,title, message, author,categorie`)
-        .order("id", { ascending: false })
-        .limit(3)
-    return {
-        props: {
-            articles: articles
-        }
-    };
-}
-

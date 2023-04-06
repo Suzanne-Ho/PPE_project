@@ -50,12 +50,12 @@ export default function useNewPost() {
                     .from('posts')
                     .insert(Object.fromEntries(data), {returning: 'minimal'})
                 if (error) {
-                    setMessage('Sorry, an unexpected error occured.')
+                    setMessage('Désolé, une erreur inattendue s\'est produite.')
                 } else {
                     setMessage(
                         <div>
                             <h2 className="text-center mt-3">Confirmation</h2>
-                            <p>Your post has been successfully posted. Now everyone can see it.</p>
+                            <p>Votre message a été publié avec succès. Tout le monde peut maintenant le voir.</p>
                         </div>
                     )
                     e.target.reset()
@@ -138,12 +138,12 @@ export default function useNewPost() {
                     <button
                         className="p-6 rounded px-3 py-2 text-neutralText bg-primaryBg hover:bg-onPrimaryBg hover:text-hoverText"
                         onClick={() => (state.button = 1)}>
-                        Send
+                        Envoyer
                     </button>
                     <button
                         className="p-6 rounded px-3 py-2 text-neutralText bg-primaryBg hover:bg-onPrimaryBg hover:text-hoverText"
                         onClick={() => (state.button = 0)}>
-                        Cancel
+                        Annuler
                     </button>
                 </div>
             </form>

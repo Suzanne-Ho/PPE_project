@@ -107,7 +107,7 @@ export default function EditPost({posts, id}) {
                                             className="block mb-2 text-sm font-medium text-neutralText">
                                             Matière
                                         </label>
-                                        <input defaultValue={posts.subeject} placeholder={posts.subject} type="text"
+                                        <input defaultValue={posts.subject} placeholder={posts.subject} type="text"
                                                name="subject"
                                                className="placeholder-onNeutralBg bg-neutralBg border border-onNeutralBg text-onNeutralBg text-sm rounded-lg focus:ring-primaryBg focus:border-primaryBg block w-full p-2.5"
                                                required/>

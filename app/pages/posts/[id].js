@@ -10,9 +10,7 @@ import {useRouter} from 'next/router'
 import {Disclosure, Transition} from "@headlessui/react";
 
 
-export default function Post({
-                                 post, comments
-                             }) {
+export default function Post({post, comments}) {
 
     const router = useRouter()
     const {user} = useContext(UserContext)
@@ -21,14 +19,14 @@ export default function Post({
     const [message, setMessage] = useState(null)
     const [posts, setPosts] = useState([])
 
-    useEffect(() => {
-        (async () => {
-            let {data, error, status} = await supabase
-                .from('posts')
-                .select(`id, message, title`)
-            setPosts(data)
-        })()
-    }, [supabase])
+    async function fetchPosts() {
+        let {data, error, status} = await supabase
+            .from('posts')
+            .select(`id, message, title`)
+        setPosts(data)
+    }
+
+    fetchPosts()
 
     /* Delete post */
     const DeletePost = async function (e) {
@@ -212,9 +210,12 @@ export default function Post({
                 }
             </div>
             {/* Post content */}
-            <p className="mb-3 my-3 text-neutralText">
-                {post.message}
-            </p>
+            {post.message.split('\n').map((paragraph, index) => (
+                <div key={index} style={{ whiteSpace: 'pre-wrap' }}>
+                    {paragraph}
+                    <br/>
+                </div>
+            ))}
 
             {/* Comment section */}
             {

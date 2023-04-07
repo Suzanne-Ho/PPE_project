@@ -5,14 +5,17 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 import UserContext from '../components/UserContext'
 import {useContext} from 'react'
+import {useSupabaseClient} from "@supabase/auth-helpers-react";
 
 export default function BetPage() {
     const [bets, setBets] = useState([]);
     const {user} = useContext(UserContext)
+    const supabaseClient = useSupabaseClient(); // Use camelCase for variable names
+
 
     useEffect(() => {
         fetchBets();
-    }, []);
+    }, [supabaseClient]);
 
     async function fetchBets() {
         try {
@@ -95,7 +98,7 @@ export default function BetPage() {
                         </div>
                         <div className="px-6 pt-4 pb-2">
                             {/*Verify that there is an available spot for the bet and we didn't already join it*/}
-                            {(!bet.player2_email || !(bet.player1_email && bet.player2_email) )&& bet.player1_email != user.email ? (
+                            {(!bet.player2_email || !(bet.player1_email && bet.player2_email) )&& bet.player1_email !== user.email ? (
                                 <button
                                     className="bg-primaryBg hover:bg-onPrimaryBg text-neutralText hover:text-hoverText py-2 px-4 rounded"
                                     onClick={() => handleJoinBet(bet)}

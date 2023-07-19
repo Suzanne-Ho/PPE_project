@@ -24,11 +24,6 @@ This is a web application, Which is realized to realized to respond to our ppe p
   npm run build
   npm start
   ```
-* Start Supabase
-  ```bash
-  cd supabase
-  docker compose up ...
-  ```
 
 ## Authors
 
